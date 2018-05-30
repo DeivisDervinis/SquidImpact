@@ -1,4 +1,4 @@
-/* Deivis Dervinis , Lee Benzacar
+/* Deivis Dervinis
  * Alien.java
  * DATE
  */

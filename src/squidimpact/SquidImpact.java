@@ -1,7 +1,6 @@
 /*
 -------------------------------------------
 Student: Deivis Dervinis dervinis@sheridan.desire2learn.com
-StudentID: 991436536
 -------------------------------------------
  */
 package squidimpact;

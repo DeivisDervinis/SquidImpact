@@ -1,4 +1,4 @@
-/* Deivis Dervinis, Lee Benzacar
+/* Deivis Dervinis
  * Craft.java
  * DATE
  */
