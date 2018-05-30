@@ -11,11 +11,11 @@ public class Boss extends Sprite
 {
   
   private int x = 2000;
-  private int y = 50;
+  private int y = 100;
   private int health = 10;
   
-  private int yvel =  1;
-  private int xvel = 1;
+  private int yvel =  2;
+  private int xvel = 2;
   
   public Boss(int x, int y,int health) { // Constructor
    super(x, y);
@@ -56,7 +56,7 @@ public class Boss extends Sprite
     if (y <= 0) {
       yvel = 2;
     }
-      if(y >= 220){
+      if(y >= 520){
         yvel = -2;
         
     }
@@ -64,7 +64,7 @@ public class Boss extends Sprite
        xvel = 2 ;
       }
       
-      if(x > 310 ){
+      if(x > 710 ){
        xvel = -2; 
       }
     

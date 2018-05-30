@@ -12,8 +12,8 @@ public class Craft extends Sprite {
   
   private int dx;
   private int dy;
-  private final int pwidth = 400;
-  private final int pheight = 300;
+  private final int pwidth = 800;
+  private final int pheight = 600;
   
   private ArrayList<Missile> missiles;
   
@@ -55,14 +55,14 @@ public class Craft extends Sprite {
   // A method that checks if the ship hits the wall
   public void checkWall()
   {
-    if(y >= 270)
+    if(y >= 570)
     {
-      y = 270;
+      y = 570;
     }
     
-    if(x >= 360)
+    if(x >= 760)
     {
-      x = 360;
+      x = 760;
     }
   }
   

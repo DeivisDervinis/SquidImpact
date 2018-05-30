@@ -51,8 +51,8 @@ public class Board extends JPanel implements ActionListener {
   private final int BOSSX = 300;
   private final int BOSSY = 50;
   
-  private final int PanelWidth = 390;
-  private final int PanelHeight = 290;
+  private final int PanelWidth = 800;
+  private final int PanelHeight = 600;
   private final int DELAY = 15;
   
   private final int canx = 0;
@@ -69,9 +69,9 @@ public class Board extends JPanel implements ActionListener {
   
   //Position for the aliens
   private final int[][] pos = {
-    {900, 259}, {660, 50}, {540, 90},
-    {810, 220}, {860, 20}, {740, 180},
-    {820, 128}, {490, 170}, {700, 30}
+    {1200, 120}, {1350, 310}, {1000, 90},
+    {1400, 460}, {1100, 245}, {740, 280},
+    {1050, 340}, {900, 170}, {700, 530}
   };
   
   public Board() {
@@ -95,13 +95,13 @@ public class Board extends JPanel implements ActionListener {
     else
       if(ch == 1){
      shipHealth = 15;
-     alSpeed = 2;
+     alSpeed = 10;
      health = 50;
     }
     else
       if(ch == 2){
      shipHealth = 10;
-     alSpeed = 3;
+     alSpeed = 20;
      health = 100;
     }
     
