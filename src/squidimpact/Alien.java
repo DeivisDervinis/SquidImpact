@@ -8,7 +8,7 @@ package squidimpact;
 public class Alien extends Sprite {
 
     private final int INITIAL_X = 800; // Initial X that allows aliens to be returned when they leave the screen
-    private int alienSpeed = 5; // Speed at which aliens are travelling
+    private int alienSpeed = 2; // Speed at which aliens are travelling
 
     public Alien(int x, int y, int as) { // Constructor
         super(x, y);
@@ -29,8 +29,8 @@ public class Alien extends Sprite {
     }
     
     ////// Mutator/////////////////////////////
-    public void setAlienSpeed(){
-     this.alienSpeed = alienSpeed; 
+    public void setAlienSpeed(int as){
+     this.alienSpeed = as; 
     }
     
     
@@ -39,10 +39,10 @@ public class Alien extends Sprite {
 
         if (x < 0) { // If it passes the panel bounds it gets returned back to starting position
             x = INITIAL_X;
-            alienSpeed += 5; // increases alien's speed when it passes the panel up to 3 times
+            alienSpeed += 1; // increases alien's speed when it passes the panel up to 3 times
         }
-        if(alienSpeed >= 20){ // If the speed is faster than 3
-         alienSpeed -= 5; // Reduces it by 1;
+        if(alienSpeed >= 10){ // If the speed is faster than 3
+         alienSpeed -= 1; // Reduces it by 1;
         }
 
         x -= alienSpeed;

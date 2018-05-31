@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.*;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -64,7 +65,9 @@ public class Board extends JPanel implements ActionListener {
   private int score = 0;
   private int mult = 1;
   private int level = 1;
-  private int alSpeed = 1;
+  private int alSpeed = 2;
+  
+  //private Random rand = new Random();
   
   
   //Position for the aliens
@@ -95,13 +98,13 @@ public class Board extends JPanel implements ActionListener {
     else
       if(ch == 1){
      shipHealth = 15;
-     alSpeed = 10;
+     alSpeed = 5;
      health = 50;
     }
     else
       if(ch == 2){
      shipHealth = 10;
-     alSpeed = 20;
+     alSpeed = 10;
      health = 100;
     }
     
@@ -162,7 +165,7 @@ public class Board extends JPanel implements ActionListener {
         
         if(lvl3 == true){ // Level 3
           for (int[] p : pos) { // For each position creates an alien
-            aliens.add(new Alien(p[0], p[1],alSpeed));
+            aliens.add(new Alien(p[0], p[1],alSpeed+1));
           }
           for (int i = 0; i < aliens.size(); i++) {
             
@@ -183,7 +186,7 @@ public class Board extends JPanel implements ActionListener {
         
         if(lvl4 == true){ // Level 3
           for (int[] p : pos) { // For each position creates an alien
-            aliens.add(new Alien(p[0], p[1],alSpeed));
+            aliens.add(new Alien(p[0], p[1],alSpeed+2));
           }
           for (int i = 0; i < aliens.size(); i++) {
             
@@ -204,7 +207,7 @@ public class Board extends JPanel implements ActionListener {
         
         if(lvl5 == true){ // Level 3
           for (int[] p : pos) { // For each position creates an alien
-            aliens.add(new Alien(p[0], p[1],alSpeed));
+            aliens.add(new Alien(p[0], p[1],alSpeed+3));
           }
           for (int i = 0; i < aliens.size(); i++) {
             
@@ -274,13 +277,13 @@ public class Board extends JPanel implements ActionListener {
     g.drawString("Aliens left: " + aliens.size(), 5, 15);
     
     g.setColor(Color.YELLOW); // Score Text
-    g.drawString("Score: " + score, 300, 15);
+    g.drawString("Score: " + score, 700, 15);
     
     g.setColor(Color.YELLOW);
     g.drawString("Level: " +level, 5, 45);
     
     g.setColor(Color.YELLOW);
-    g.drawString("Mult: x" +mult,300,30);
+    g.drawString("Mult: x" +mult,700,30);
     
     g.setColor(Color.GREEN); // Shio health Text
     g.drawString("Ship health: " + shipHealth, 5, 30);
@@ -298,7 +301,8 @@ public class Board extends JPanel implements ActionListener {
     if(aliens.size() <= 0 && bossLet == true) // Checks if there are no aliens, or boss left
     {
       String ms = "You won!";
-      Font small = new Font("Helvetica", Font.BOLD, 14); // Sets the font
+      Font small = new Font("Helvetica", Font.BOLD, 32); // Sets the font
+      g.drawImage(back.getImage(),back.getX(),back.getY(),this); 
       FontMetrics fm = getFontMetrics(small);
       
       g.setColor(Color.white);
@@ -311,7 +315,8 @@ public class Board extends JPanel implements ActionListener {
       if(shipHealth <= 1){
       
       String msg = "Game Over";
-      Font small = new Font("Helvetica", Font.BOLD, 14); // Sets the font
+      Font small = new Font("Helvetica", Font.BOLD, 32); // Sets the font
+      g.drawImage(back.getImage(),back.getX(),back.getY(),this); 
       FontMetrics fm = getFontMetrics(small);
       
       g.setColor(Color.white);
@@ -321,7 +326,7 @@ public class Board extends JPanel implements ActionListener {
     }
     
     String scr = "Score: ";
-    Font small = new Font("Helvetica", Font.BOLD, 14); // Sets the font
+    Font small = new Font("Helvetica", Font.BOLD, 30); // Sets the font
     FontMetrics fm = getFontMetrics(small);
     
     g.setColor(Color.white);
@@ -447,6 +452,7 @@ public class Board extends JPanel implements ActionListener {
         }
         else{
           alien.setVisible(false);
+          mult = 1;
           shipHealth -= 1;
         }
       }
