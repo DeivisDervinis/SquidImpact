@@ -14,8 +14,8 @@ public class Boss extends Sprite
   private int y = 100;
   private int health = 10;
   
-  private int yvel =  2;
-  private int xvel = 2;
+  private int yvel =  8;
+  private int xvel = 8;
   
   public Boss(int x, int y,int health) { // Constructor
    super(x, y);
