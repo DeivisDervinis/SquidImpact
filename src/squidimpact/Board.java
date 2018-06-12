@@ -22,12 +22,10 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.JOptionPane;
 
+// Board class that works as a runner for the whole game, it loads in the entities and uses them to work the game
+
 public class Board extends JPanel implements ActionListener {
 
-    /*Notes
-   Check Mult
-   Adjust speed of monsters every level
-     */
     // Declaring variables
     private Timer timer;
     private Craft craft;
@@ -62,8 +60,7 @@ public class Board extends JPanel implements ActionListener {
     private int mult = 1;
     private int level = 1;
     private int alSpeed = 2;
-
-    //private Random rand = new Random();
+    
     //Position for the aliens
     private final int[][] pos = {
         {1200, 120}, {1350, 310}, {1000, 90},
@@ -71,11 +68,14 @@ public class Board extends JPanel implements ActionListener {
         {1050, 340}, {900, 170}, {700, 530}
     };
 
+    // Constructor that will initialize the board
     public Board() {
 
         initBoard();
     }
 
+    
+    // Method that will set up the entities and will start the game
     private void initBoard() { // A method that starts the game
         ImageIcon icon = new ImageIcon(this.getClass().getResource("images/icon.png"));
         int s = JOptionPane.showConfirmDialog(null, "Welcome to Squid Impact! Click YES to play, NO to close the program\nArrows keys to move, SPACE to shoot", "Squid Impact", JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE, icon);
@@ -83,20 +83,26 @@ public class Board extends JPanel implements ActionListener {
             System.exit(0);
         }
 
+        // String array for button selection
         String[] buttons = {"Easy", "Medium", "Hard"};
         int ch = JOptionPane.showOptionDialog(null, "Please choose your difficulty: ", "Squid Impact",
                 JOptionPane.INFORMATION_MESSAGE, 0, null, buttons, buttons[2]);
-        if (ch == 0) {
-            shipHealth = 20;
-        } else if (ch == 1) {
-            shipHealth = 15;
-            alSpeed = 5;
-            health = 50;
-        } else if (ch == 2) {
-            shipHealth = 10;
-            alSpeed = 10;
-            health = 100;
-        }
+        
+        switch(ch){
+            case 0:
+                shipHealth = 20;
+                break;
+            case 1:
+                shipHealth = 15;
+                alSpeed = 5;
+                health = 20;
+                break;
+                
+            case 2:
+                shipHealth = 10;
+                alSpeed = 10;
+                health = 100;
+            }
 
         addKeyListener(new TAdapter());
         setFocusable(true);
